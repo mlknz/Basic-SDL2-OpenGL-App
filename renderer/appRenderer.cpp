@@ -9,6 +9,7 @@
 // std
 #include <map>
 #include <string>
+#include <vector> // tmp
 #include <utility> // for std::pair
 // glm
 #include <glm/glm.hpp>
@@ -18,7 +19,7 @@
 #include <ft2build.h>
 #include FT_FREETYPE_H
 
-#include "Shader.h"
+#include "shaderProgram.hpp"
 
 #include "appRenderer.h"
 
@@ -127,11 +128,19 @@ AppRenderer::AppRenderer() {
     glBindBuffer(GL_ARRAY_BUFFER, 0);
     glBindVertexArray(0);
 
-    // Compile and setup the shader
-    Shader shader("shaders/textGlyph.vert", "shaders/textGlyph.frag");
-    shader.Use();
-    glUniformMatrix4fv(glGetUniformLocation(shader.Program, "projection"), 1, GL_FALSE, glm::value_ptr(projection));
-    glUniform3f(glGetUniformLocation(shader.Program, "textColor"), 0.f, 1.f, 1.f);
+
+    GLuint vert = CreateShader(GL_VERTEX_SHADER, "shaders/textGlyph.vert");
+    GLuint frag = CreateShader(GL_FRAGMENT_SHADER, "shaders/textGlyph.frag");
+    std::vector<GLuint> shaderList; // = {vert, frag};
+    shaderList.push_back(vert);
+    shaderList.push_back(frag);
+
+    GLuint shaderProgram = CreateProgram(shaderList);
+
+    glUseProgram(shaderProgram);
+
+    glUniformMatrix4fv(glGetUniformLocation(shaderProgram, "projection"), 1, GL_FALSE, glm::value_ptr(projection));
+    glUniform3f(glGetUniformLocation(shaderProgram, "textColor"), 0.f, 1.f, 1.f);
 
 }
 

@@ -12,7 +12,7 @@
 //#include <glload/gl_3_2_comp.h>
 //#include <GL/freeglut.h>
 
-#include <glfw3.h>
+// #include <glfw3.h>
 
 #include <glm/glm.hpp>
 using namespace glm;
@@ -21,7 +21,6 @@ GLuint CreateShader(GLenum eShaderType, const char * shaderFilePath)
 {
 	GLuint shader = glCreateShader(eShaderType);
 
-	//read code from file
 	std::string shaderCode;
 	std::ifstream shaderStream(shaderFilePath, std::ios::in);
 	if (shaderStream.is_open()){
@@ -50,7 +49,7 @@ GLuint CreateShader(GLenum eShaderType, const char * shaderFilePath)
 		if (infoLogLength > 0){
 			std::vector<char> ShaderErrorMessage(infoLogLength + 1);
 			glGetShaderInfoLog(shader, infoLogLength, NULL, &ShaderErrorMessage[0]);
-			printf("%sasd\n", &ShaderErrorMessage[0]);
+            printf("%s - shader error msg.\n", &ShaderErrorMessage[0]);
 		}
 	}
 
