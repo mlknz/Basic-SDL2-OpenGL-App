@@ -18,7 +18,6 @@ void AppControls::update() {
             *(this->quit) = true;
         } else if ( this->e.type == SDL_KEYDOWN )
         {
-            //Select surfaces based on key press
             switch( this->e.key.keysym.sym )
             {
                 case SDLK_ESCAPE:

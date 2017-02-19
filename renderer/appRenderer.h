@@ -7,6 +7,11 @@ public:
     ~AppRenderer();
 
     void render();
+    void initTextRenderer();
+
+private:
+
+    // void RenderText(Shader &s, std::string text, GLfloat x, GLfloat y, GLfloat scale, glm::vec3 color);
 };
 
 #endif
