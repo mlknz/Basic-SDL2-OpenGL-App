@@ -17,7 +17,7 @@
 #include <glm/glm.hpp>
 using namespace glm;
 
-GLuint CreateShader(GLenum eShaderType, const char * shaderFilePath)
+GLuint compileShader(GLenum eShaderType, const char * shaderFilePath)
 {
 	GLuint shader = glCreateShader(eShaderType);
 
@@ -56,7 +56,7 @@ GLuint CreateShader(GLenum eShaderType, const char * shaderFilePath)
 	return shader;
 }
 
-GLuint CreateProgram(const std::vector<GLuint> &shaderList)
+GLuint linkShaderProgram(const std::vector<GLuint> &shaderList)
 {
 	GLuint program = glCreateProgram();
 

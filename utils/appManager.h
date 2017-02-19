@@ -3,7 +3,7 @@
 
 #include <SDL2/SDL.h>
 #include "controls/appControls.h"
-#include "renderer/appRenderer.h"
+#include "renderer/appRenderer.hpp"
 
 class AppManager {
 public:

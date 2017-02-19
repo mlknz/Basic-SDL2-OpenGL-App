@@ -1,9 +1,9 @@
-#ifndef SHADERPROGRAM_HPP
-#define SHADERPROGRAM_HPP
+#ifndef __AnimalFarm_ShaderProgram__
+#define __AnimalFarm_ShaderProgram__
 
 #include <vector>
 
-GLuint CreateShader(GLenum eShaderType, const char * shaderFilePath);
-GLuint CreateProgram(const std::vector<GLuint> &shaderList);
+GLuint compileShader(GLenum eShaderType, const char * shaderFilePath);
+GLuint linkShaderProgram(const std::vector<GLuint> &shaderList);
 
 #endif
