@@ -4,6 +4,7 @@
 #include <SDL2/SDL.h>
 #include "controls/appControls.h"
 #include "renderer/appRenderer.hpp"
+#include "uiManager/uiManager.hpp"
 
 class AppManager {
 public:
@@ -15,6 +16,7 @@ public:
 private:
     AppControls* controls;
     AppRenderer* renderer;
+    UiManager* uiManager;
 
     SDL_Window* gWindow = nullptr;
     SDL_GLContext glContext = nullptr;

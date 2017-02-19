@@ -27,6 +27,8 @@ SET( SOURCE_FILES
     ${PROJECT_SOURCE_DIR}/main.cpp
     ${PROJECT_SOURCE_DIR}/utils/appManager.cpp
     ${PROJECT_SOURCE_DIR}/controls/appControls.cpp
+    ${PROJECT_SOURCE_DIR}/uiManager/uiManager.cpp
+    ${PROJECT_SOURCE_DIR}/uiManager/button.cpp
 
     ${PROJECT_SOURCE_DIR}/renderer/appRenderer.cpp
     ${PROJECT_SOURCE_DIR}/renderer/textRenderer/textRenderer.cpp

@@ -32,7 +32,13 @@ AppManager::AppManager() {
                 printf( "OpenGL context couldn't be initialized! SDL_Error: %s\n", SDL_GetError() );
             } else {
                 this->controls = new AppControls(&(this->quit));
-                this->renderer = new AppRenderer();
+
+                this->uiManager = new UiManager();
+
+                this->renderer = new AppRenderer(this->uiManager);
+
+                this->uiManager->addButton();
+
                 success = true;
             }
         }

@@ -21,7 +21,9 @@
 const int SCREEN_WIDTH = 640;
 const int SCREEN_HEIGHT = 480;
 
-AppRenderer::AppRenderer() {
+AppRenderer::AppRenderer(UiManager* uiManagerIn) {
+    this->uiManager = uiManagerIn;
+
     SDL_GL_SetAttribute(SDL_GL_CONTEXT_PROFILE_MASK, SDL_GL_CONTEXT_PROFILE_CORE);
 
     SDL_GL_SetAttribute(SDL_GL_CONTEXT_MAJOR_VERSION, 3);
@@ -49,7 +51,10 @@ void AppRenderer::render() {
 
     glClear(GL_COLOR_BUFFER_BIT|GL_DEPTH_BUFFER_BIT);
 
-    this->textRenderer->renderText("Rendering text no joke.", 25.0f, 25.0f, 1.0f, glm::vec3(0.5, 0.8f, 0.2f));
+    // draw buttons
+    for (int itr = 0; itr < this->uiManager->buttons.size(); ++itr) {
+        this->textRenderer->renderText("Rendering text no joke.", 25.0f, 25.0f, 1.0f, glm::vec3(0.5, 0.8f, 0.2f));
+    }
 
 }
 
