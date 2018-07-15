@@ -3,7 +3,7 @@
 Just a sandbox.
 Builds on ubuntu 16.04.
 
-sudo apt-get install libsdl2-dev libfreetype6-dev libglm-dev
+sudo apt-get install libsdl2-dev libsdl2-image-dev libfreetype6-dev libglm-dev
 
 basic building scenario (starting 1 level up from repo root):
 ```bash
